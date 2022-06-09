@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'com.690squadron'
+version '1.0-SNAPSHOT'
+
+application {
+    mainClass = 'io.github.mbd98.uniform.UniformMain'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.opencsv:opencsv:5.5.2'
+    implementation 'com.google.guava:guava:31.0.1-jre'
+}
+
+task runInput(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = application.mainClass
+    args = ["input.csv", "output.csv"]
+}
